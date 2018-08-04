@@ -1,6 +1,8 @@
 # Warcworker
 A dockerized queued high fidelity web archiver based on [Squidwarc](https://github.com/N0taN3rd/Squidwarc) (Chrome headless), RabbitMQ and a small web frontend.
 
+<img src="https://user-images.githubusercontent.com/19284/43676896-e4c3276e-97f9-11e8-815c-0ab5c1cc254f.png" alt="screenshot" width="50%" />
+
 ## Installation
 Copy .env_example to .env. 
 
