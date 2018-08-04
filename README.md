@@ -1,12 +1,12 @@
-# warcworker
+# Warcworker
 A dockerized queued high fidelity web archiver based on [Squidwarc](https://github.com/N0taN3rd/Squidwarc) (Chrome headless), RabbitMQ and a small web frontend.
 
-# Installation
+## Installation
 Copy .env_example to .env. 
 
 Start with `docker-compose up -d --scale worker=3` (wait a minute for everything to start up)
 
-# Archiving and playback
+## Archiving and playback
 Open web front end at http://127.0.0.1:8080 to enter URLs for archiving.
 
 Add a bookmarklet to your browser with the following link:
