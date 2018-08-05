@@ -9,7 +9,7 @@ Copy .env_example to .env.
 Start with `docker-compose up -d --scale worker=3` (wait a minute for everything to start up)
 
 ## Archiving and playback
-Open web front end at http://127.0.0.1:8080 to enter URLs for archiving.
+Open web front end at http://127.0.0.1:8080 to enter URLs for archiving. You can prefill the text fields with the `url` and `description` request parameters.
 
 Add a bookmarklet to your browser with the following link:
 
