@@ -8,7 +8,6 @@ RUN apk add --update vim
 RUN apk add --update bash
 
 RUN mkdir -p /archive
-RUN mkdir -p /jobs
 EXPOSE 9222
 
 # install squidwarc while we have access to python 2.7
@@ -31,8 +30,6 @@ RUN pip install -r requirements.txt
 
 COPY ./worker.sh worker.sh
 COPY ./worker.py worker.py
-COPY ./test_worker.py test_worker.py
-COPY ./testjob_fb.json testjob_fb.json
 
 RUN chmod +x worker.sh
 
