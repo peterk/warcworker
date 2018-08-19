@@ -6,6 +6,7 @@ services:
     volumes:
       - ./web/app:/app
       - ./archive:/archive
+      - ./scripts:/scripts
     ports:
       - "8080:8000"
     environment:
@@ -41,17 +42,36 @@ services:
     hostname: worker
     volumes:
       - ./archive:/archive
+      - ./scripts:/scripts
+    ports:
+      - "9222:9222"
     environment:
       - PYTHONUNBUFFERED=1
       - ERROR_EMAIL=${ERROR_EMAIL}
       - RABBITMQ_DEFAULT_USER=${RMQ_USER}
       - RABBITMQ_DEFAULT_PASS=${RMQ_PASSWORD}
+      - INDOCKER=true
     depends_on:
       - "mq"
     restart: always
     shm_size: 1G
     networks:
       - warcnet
+#  playback:
+#    build: ./playback
+#    hostname: playback
+#    volumes:
+#      - ./archive:/archive
+#      - ./playback/webarchive:/webarchive
+#    environment:
+#      - PYTHONUNBUFFERED=1
+#      - ERROR_EMAIL=${ERROR_EMAIL}
+#    depends_on:
+#      - "web"
+#    restart: always
+#    shm_size: 1G
+#    networks:
+#      - warcnet
 networks:
   warcnet:
     driver: bridge

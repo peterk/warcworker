@@ -1,40 +1,57 @@
 {% extends "layout.html" %}
 {% block body %}
-        <div class="container-fluid">
-            <div class="row" role="banner">
-                <div class="col-md-12 banner py-sm-3">
-                    <h1 class="logo mr-sm-5 ml-sm-5 mt-4">Archive it <small>(ß)</small></h1>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row" role="main">
-                <div class="col-md-12">
-                    {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                    <div class="alert alert-danger mt-2" role="alert">
-                                        {% for message in messages %}
-                                                {{ message }}
-                                        {% endfor %}
-                                    </div>
-                            {% endif %}
-                    {% endwith %}  
-                    <form class="form-submiturls" action="{{ url_for('process') }}" method="POST">
-		      <div class="form-group">
-                        <label for="url">URLs to archive</label>
-			<textarea name="url" id="url" class="form-control" required autofocus rows="4">{{url}}</textarea>
-			<small class="form-text text-muted">One URL per line</small>
-		      </div>
-		      <div class="form-group">
-                        <label for="description">Optional description</label>
-			<input class="form-control" type="text" placeholder="Description" value="{{description}}" name="description" id="description"/>
-			<small class="form-text text-muted">Description will be added to metadata file</small>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Archive it!</button>
-		      </div>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="row"></div>
-        </div>
+    <div class="container-fluid">
+      <div class="row" role="banner">
+	<div class="col-md-12 banner py-sm-3">
+	  <h1 class="logo mr-sm-5 ml-sm-5 mt-4">Archive it <small>(ß)</small></h1>
+	</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row" role="main">
+	<div class="col-md-12">
+	  {% with messages = get_flashed_messages() %}
+	      {% if messages %}
+		  <div class="alert alert-danger mt-2" role="alert">
+		    {% for message in messages %}
+			{{ message }}
+		    {% endfor %}
+		  </div>
+	      {% endif %}
+	  {% endwith %}  
+	  <form class="form-submiturls" action="{{ url_for('process') }}" method="POST">
+	    <div class="form-group">
+	      <label for="url">URLs to archive</label>
+	      <textarea name="url" id="url" class="form-control" required autofocus rows="4">{{url}}</textarea>
+	      <small class="form-text text-muted">One URL per line</small>
+	    </div>
+	    <div class="form-group">
+	      <div class="form-row">
+		<fieldset>
+		  <legend class="col-form-label">
+		    Available scripts
+		  </legend>
+		  {% if scripts %}
+		      {% for script in scripts %}
+			  <div class="form-check form-check-inline col-sm-4">
+			    <input type="checkbox" name="scripts" class="form-check-input" id="{{script}}" value="{{script}}" />
+			    <label class="form-check-label" for="{{script}}">{{script}}</label>
+			  </div>
+		      {% endfor %}
+		  {% endif %}
+		</fieldset>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label for="description">Optional description</label>
+	      <input class="form-control" type="text" placeholder="Description" value="{{description}}" name="description" id="description"/>
+	      <small class="form-text text-muted">Description will be added to metadata file</small>
+	      <button class="btn btn-lg btn-primary btn-block" type="submit">Archive it!</button>
+	    </div>
+	  </form>
+	</div>
+      </div>
+
+      <div class="row"></div>
+    </div>
 {% endblock %}

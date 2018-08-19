@@ -12,7 +12,6 @@ from email.mime.text import MIMEText
 from os.path import basename
 from email.mime.application import MIMEApplication
 from email.utils import COMMASPACE, formatdate
-#from mailjet_rest import Client
 import logging
 import traceback
 import pika
@@ -38,8 +37,9 @@ def handle_job(message):
             json.dump(jdata, outfile)
             logging.info(f"Wrote {output_path}/crawl_job.json")
 
+        command = f"node --harmony index.js -c {output_path}/crawl_job.json" 
         # run squidwarc
-        subprocess.run(f"node --harmony index.js -c {output_path}/crawl_job.json", cwd="/usr/src/app/Squidwarc", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(command, cwd="/usr/src/app/Squidwarc", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         logging.info(f"Job {jobid} done!")
 
