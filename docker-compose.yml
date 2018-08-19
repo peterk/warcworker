@@ -8,16 +8,16 @@ services:
       - ./archive:/archive
       - ./scripts:/scripts
     ports:
-      - "8080:8000"
+      - "5555:5555"
     environment:
       - FLASK_APP=main.py
       - FLASK_DEBUG=${FLASK_DEBUG}
       - FLASK_KEY=${FLASK_KEY}
       - PYTHONUNBUFFERED=1
-      - 'RUN=flask run --host=0.0.0.0 --port=8000'
+      - 'RUN=flask run --host=0.0.0.0 --port=5555'
       - RABBITMQ_DEFAULT_USER=${RMQ_USER}
       - RABBITMQ_DEFAULT_PASS=${RMQ_PASSWORD}
-    command: flask run --host=0.0.0.0 --port=8000
+    command: flask run --host=0.0.0.0 --port=5555
     depends_on:
       - "mq"
     restart: always
@@ -32,8 +32,8 @@ services:
     volumes:
         - ./queue:/q
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "15672"
+      - "5672"
     restart: always
     networks:
       - warcnet
@@ -43,8 +43,6 @@ services:
     volumes:
       - ./archive:/archive
       - ./scripts:/scripts
-    ports:
-      - "9222:9222"
     environment:
       - PYTHONUNBUFFERED=1
       - ERROR_EMAIL=${ERROR_EMAIL}
