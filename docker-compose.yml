@@ -67,7 +67,6 @@ services:
 #    depends_on:
 #      - "web"
 #    restart: always
-#    shm_size: 1G
 #    networks:
 #      - warcnet
 networks:

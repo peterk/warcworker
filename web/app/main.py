@@ -15,8 +15,6 @@ DEBUG = os.environ["FLASK_DEBUG"]
 credentials = pika.PlainCredentials(os.environ['RABBITMQ_DEFAULT_USER'], os.environ["RABBITMQ_DEFAULT_PASS"])
 
 
-
-
 def make_job(jobid, output_path, seeds=[], description="", scripts=[]):
     """Create json for crawl job.
     """
