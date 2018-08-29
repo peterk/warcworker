@@ -54,6 +54,8 @@ def make_job(jobid, output_path, seeds=[], description="", scripts=[]):
     data["warc"] = {}
     data["warc"]["naming"] = "url"
     data["warc"]["output"] = output_path
+    data["warc"]["append"] = True
+    data["executablePath"] = "/usr/bin/google-chrome-stable"
     data["connect"] = {}
     data["connect"]["launch"] = True
     data["connect"]["host"] = "localhost"
