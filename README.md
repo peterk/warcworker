@@ -29,7 +29,7 @@ To use from the command line with curl:
 ### Archivenow handler
 To use from [archivenow](https://github.com/oduwsdl/archivenow) add a handler file `handlers/ww_handler.py` like this:
 
-````python
+```python
 import requests
 import json
 
