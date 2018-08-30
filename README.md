@@ -15,15 +15,17 @@ Open web front end at http://0.0.0.0:5555 to enter URLs for archiving. You can p
 ### Bookmarklet
 Add a bookmarklet to your browser with the following link:
 
-`javascript:window.open('http://0.0.0.0:5555/?url='+encodeURIComponent(location.href));window.focus();`
+`javascript:window.open('http://0.0.0.0:5555?url='+encodeURIComponent(location.href) + '&description=' + encodeURIComponent(document.title));window.focus();`
 
-Now you have single click web archiving from your browser.
+Now you have two-click web archiving from your browser.
 
 
 ### Command line
 To use from the command line with curl:
 
 `curl -d "scripts=srcset&scripts=scroll_everything&url=https://www.peterkrantz.se/" -X POST http://0.0.0.0:5555/process/`
+
+
 
 
 ### Archivenow handler
