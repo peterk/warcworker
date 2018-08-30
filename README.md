@@ -23,7 +23,7 @@ Now you have two-click web archiving from your browser.
 ### Command line
 To use from the command line with curl:
 
-`curl -d "scripts=srcset&scripts=scroll_everything&url=https://www.peterkrantz.se/" -X POST http://0.0.0.0:5555/process/`
+`curl -d "scripts=srcset&scripts=scroll_everything&url=https://www.peterkrantz.com/" -X POST http://0.0.0.0:5555/process/`
 
 
 
