@@ -20,7 +20,7 @@ RUN apt-get install google-chrome-stable -y
 
 
 RUN mkdir -p /archive
-RUN mkdir -p /scripts
+RUN mkdir -p /scripts/job
 
 
 # Get squidwarc w puppeteer support
