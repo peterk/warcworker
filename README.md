@@ -1,7 +1,7 @@
 # Warcworker
 A dockerized queued high fidelity web archiver based on [Squidwarc](https://github.com/N0taN3rd/Squidwarc) (Chrome headless), RabbitMQ and a small web frontend. Using the scripting abilities of Squidwarc, you can add scripts that should be run for a specific crawl (e.g. src-set enrichment, comment expansion etc).
 
-<img src="https://user-images.githubusercontent.com/19284/43676896-e4c3276e-97f9-11e8-815c-0ab5c1cc254f.png" alt="screenshot" width="50%" />
+<img src="https://user-images.githubusercontent.com/19284/49601413-151dab80-f986-11e8-90d6-5a46e4593fb2.png" alt="screenshot of Warcworker" width="50%" />
 
 ## Installation
 Copy .env_example to .env. Update information in .env.
